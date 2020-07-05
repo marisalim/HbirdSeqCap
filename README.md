@@ -24,8 +24,55 @@ Contents:
 
 ## Upstream bioinformatic pipeline <a name='bioinf'></a>
 
+
+### 1Probe_design
+There were two procedures - the first to design probes to capture previously identified high-altitude adaptation candidate genes and the second to capture a 'random' set of exons from across the entire genome. 
+
+Targeting candidate genes:
+1.
+1.
+1.
+
+
+Targeting random exons across the genome:
+1.
+1.
+1.
+
+
+
+
+
+### 2Clean_reads_assemble
+
+
+
+
+### 3Alignment
+
+
+
+
+### 4SNPcalling
+
+
+
+
 ## Population genomic analyses <a name='popgen'></a>
 
+### PCA
+
+### Admixture
+
+### Gene flow (Fst, Dxy)
+
+### EEMS
+
+### LFMM
+
+### Other
+- ngsrelate
+- 
 
 
 
