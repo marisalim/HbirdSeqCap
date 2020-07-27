@@ -1,10 +1,10 @@
 # Read cleaning and assembly script descriptions
 
-*Note: I wrote all of the python scripts with append functions to save files. As a result, you need to delete old outputs if you want to rerun the script. Otherwise, you'll end up with old + new + new2 + ... in the results file. Append does not write over the file. These were all written for Python2.7.*
+*Note: I wrote all of the python scripts with append functions to save files. As a result, old outputs must be deleted if the script is rerun. Otherwise, the outputs will end up with old + new + new2 + ... in the results file. Append does not write over the file. These were all written for Python2.7.*
 
 ## Clean raw reads
 
-*This step uses CGRL's [1-ScrubReads_d script](https://github.com/marisalim/Sequence_cap_hbirds/blob/master/CGRLScripts/1-ScrubReads_d).*
+*This step uses CGRL's [1-ScrubReads_d script](../CGRLScripts/1-ScrubReads_d).*
 
 Required software:
 - perl 5.24.0-threads
@@ -19,7 +19,7 @@ I wrote a wrapper script, `scrubreads_wrap.sh`, to loop through samples with CGR
 
 Read cleaning command:
 ```
-perl /pylon1/bi4iflp/mlim/SeqCapData/1-ScrubReads_d cleanPE -f /pylon1/bi4iflp/mlim/SeqCapData/Lim/ -o /pylon1/bi4iflp/mlim/SeqCapData/ScrubReads_Results/ -t $TRIMMOMATIC_HOME/trimmomatic-0.36.jar -c /pylon1/bi4iflp/mlim/SeqCapData/e_coli_K12.fasta -d all -M 0 -l 150 -z
+perl 1-ScrubReads_d cleanPE -f <path to raw data> -o /ScrubReads_Results/ -t $TRIMMOMATIC_HOME/trimmomatic-0.36.jar -c e_coli_K12.fasta -d all -M 0 -l 150 -z
 ```
 
 Script flags:
@@ -52,7 +52,7 @@ sbatch runfastqc.sh
 
 *The purpose of this step was to create species-specific reference assemblies for 6 samples each per species (with most data but not too many unmerged reads based on fastqc reports). All samples will later be mapped to these references. The divergence between study samples and the available hummingbird reference genome (Anna's hummmingbird) is too large, such that the % of reads mapping to the Anna's hummingbird genome was too low for downstream population genomic analysis. Mapping to the species-specific references was much higher.*
 
-*This step uses CGRL's [2-GenerateAssembliesPhylo script](https://github.com/marisalim/Sequence_cap_hbirds/blob/master/CGRLScripts/2-GenerateAssembliesPhylo).*
+*This step uses CGRL's [2-GenerateAssembliesPhylo script](../CGRLScripts/2-GenerateAssembliesPhylo).*
 
 Required software:
 - perl 5.24.0-threads
@@ -62,7 +62,7 @@ I wrote a wrapper script, `spades_wrap.sh`.
 
 Assembly command:
 ```
-perl /pylon1/bi4iflp/mlim/SeqCapData/2-GenerateAssembliesPhylo spades -reads /pylon1/bi4iflp/mlim/SeqCapData/readsforspades -out /pylon1/bi4iflp/mlim/SeqCapData/readsforspades/spades_outs -np 1
+perl 2-GenerateAssembliesPhylo spades -reads readsforspades -out readsforspades/spades_outs -np 1
 ```
 
 Script flags:
@@ -73,7 +73,7 @@ Script flags:
 
 ## Generate species-specific reference
 
-*A consequence of making separate species-specific references is that the target gene coordinates differ for each assembly. Consequently, to make the species-specific references we had to blast search for all the targeted genes in the assemblies for each species. At the end of this process, we will have 1 reference file per species. This will be achieved by concatenating across the 6 spades assemblies per species using CGRL's [3-FindingTargetsV9 script](https://github.com/marisalim/Sequence_cap_hbirds/blob/master/CGRLScripts/3-FindingTargetsV9).*
+*A consequence of making separate species-specific references is that the target gene coordinates differ for each assembly. Consequently, to make the species-specific references we had to blast search for all the targeted genes in the assemblies for each species. At the end of this process, we will have 1 reference file per species. This will be achieved by concatenating across the 6 spades assemblies per species using CGRL's [3-FindingTargetsV9 script](../CGRLScripts/3-FindingTargetsV9).*
 
 1. Extract candidate target gene sequences: `python Canna_candgene_ref.py`
 2. Extract random marker target gene sequences: `python Canna_randmarks_ref.py`
@@ -90,7 +90,7 @@ Required software:
 
 Reference generation command:
 ```
-perl /pylon1/bi4iflp/mlim/SeqCapData/3-FindingTargetsV9 combineExon -t /pylon1/bi4iflp/mlim/SeqCapData/targeted_loci.fasta -a /pylon1/bi4iflp/mlim/SeqCapData/raw_assembly_dir -p 80 -b 1 -e 4 -f 500
+perl 3-FindingTargetsV9 combineExon -t targeted_loci.fasta -a raw_assembly_dir -p 80 -b 1 -e 4 -f 500
 ```
 
 Script flags:
