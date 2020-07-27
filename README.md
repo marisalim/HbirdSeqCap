@@ -5,14 +5,14 @@ The code in this repository accompany the *in revision* paper:
 Marisa C.W. Lim, Ke Bi, Christopher C. Witt, Catherine H. Graham, Liliana M. Davalos
 
 ## Upstream bioinformatic pipeline
+Note: we used some scripts from [CGRL scientists](./CGRLScripts)
 
-
-### 1Probe_design
+- 1Probe_design
 There were two procedures - the first to design probes to capture previously identified high-altitude adaptation candidate genes and the second to capture a 'random' set of exons from across the entire genome. 
 
 
 
-### 2Clean_reads_assemble
+- [2. Clean raw_reads_and assemble](./2Clean_reads_assemble)
 
 
 
