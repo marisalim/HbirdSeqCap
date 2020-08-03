@@ -2,31 +2,19 @@
 
 # note: these are folded saf files (ran ANGSD with -fold 1)
 
-# sgeof saf idx files
-realSFS /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/dxy/FOLDED_angsd_outs/sgeof_fordxythetapop1_out.saf.idx -P 24 > /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/Watterson_theta/sgeof_fordxythetapop1_out.sfs
-realSFS /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/dxy/FOLDED_angsd_outs/sgeof_fordxythetapop2_out.saf.idx -P 24 > /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/Watterson_theta/sgeof_fordxythetapop2_out.sfs
-realSFS /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/dxy/FOLDED_angsd_outs/sgeof_fordxythetapop3_out.saf.idx -P 24 > /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/Watterson_theta/sgeof_fordxythetapop3_out.sfs
-
-# ccoel saf idx files
-realSFS /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/dxy/FOLDED_angsd_outs/ccoel_fordxythetapop1_out.saf.idx -P 24 > /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/Watterson_theta/ccoel_fordxythetapop1_out.sfs
-realSFS /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/dxy/FOLDED_angsd_outs/ccoel_fordxythetapop2_out.saf.idx -P 24 > /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/Watterson_theta/ccoel_fordxythetapop2_out.sfs
-realSFS /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/dxy/FOLDED_angsd_outs/ccoel_fordxythetapop3_out.saf.idx -P 24 > /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/Watterson_theta/ccoel_fordxythetapop3_out.sfs
-realSFS /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/dxy/FOLDED_angsd_outs/ccoel_fordxythetapop4_out.saf.idx -P 24 > /pylon5/bi4iflp/mlim/SeqCapData/angsd_analysis/Fst_dxy_theta/Watterson_theta/ccoel_fordxythetapop4_out.sfs
-
 # cviol saf idx files
 realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/cviol_fordxythetapop1_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/cviol_fordxythetapop1_out.sfs
-realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/cviol_fordxythetapop2_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/cviol_fordxythetapop2_out.sfs 
-realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/cviol_fordxythetapop3_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/cviol_fordxythetapop3_out.sfs 
-realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/cviol_fordxythetapop4_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/cviol_fordxythetapop4_out.sfs 
-realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/cviol_fordxythetapop5_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/cviol_fordxythetapop5_out.sfs 
+realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/cviol_fordxythetapop2_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/cviol_fordxythetapop2_out.sfs
+realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/cviol_fordxythetapop3_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/cviol_fordxythetapop3_out.sfs
+realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/cviol_fordxythetapop4_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/cviol_fordxythetapop4_out.sfs
+realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/cviol_fordxythetapop5_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/cviol_fordxythetapop5_out.sfs
 realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/cviol_fordxythetapop6_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/cviol_fordxythetapop6_out.sfs
 
 # ccoru saf idx files
 realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop1_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop1_out.sfs
-realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop2_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop2_out.sfs 
-realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop3_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop3_out.sfs 
-realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop4_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop4_out.sfs 
-realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop5_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop5_out.sfs 
-realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop6_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop6_out.sfs 
+realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop2_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop2_out.sfs
+realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop3_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop3_out.sfs
+realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop4_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop4_out.sfs
+realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop5_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop5_out.sfs
+realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop6_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop6_out.sfs
 realSFS /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/FOLDED_forthetapi/ccoru_fordxythetapop7_out.saf.idx -P 24 > /groups/hologenomics/mlim/data/FstDxyThetaPi_CcoruCviolFix_21Oct18/ThetaPi_CcoruCviolFix/ccoru_fordxythetapop7_out.sfs
-
