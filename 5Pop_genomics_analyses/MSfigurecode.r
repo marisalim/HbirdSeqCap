@@ -1,21 +1,9 @@
----
-title: "Hbird pop gen & cline plots - Sept 2019"
-author: "Marisa Lim"
-date: "August 18, 2019"
-output: html_document
----
+# title: "Hbird pop gen & cline plots
+# author: "Marisa Lim"
+# date: "August 2, 2020"
+# output: html_document
 
-All figures for population genomics/local adaptation chapter's manuscript. Combining population genetics and selection test chapters for *Coeligena violifer* and *Colibri coruscans*.
-
-Notes: Will write *Coeligena coeligena* and *Schistes geoffroyi* data as separate paper. Perhaps in a bird journal, focused on phylogeograpy.
-
-Set working directory:
-```{r, echo=FALSE}
-setwd('C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/Ch3and4_squishedversion/2020_figs/')
-```
-
-Load libraries:
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Load libraries:
 # for sample distribution figures
 library(raster)
 library(sf)
@@ -48,32 +36,27 @@ library(ade4)
 # library(ggplot2) # already loaded
 # library(cowplot) # already loaded
 
-```
+# ----- Main figures -----
 
-# Main figures
-
-## Sample distribution maps
-```{r, results='hide', warning=FALSE, echo=FALSE}
+# ------ Sample distribution maps ------
 # read in data
-# cviol_sdm <- raster('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/cost_dist_analysis_files/Coeligena_violifer.tif')
-# ccoru_sdm <- raster('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/cost_dist_analysis_files/Colibri_coruscans.tif')
+# cviol_sdm <- raster('Coeligena_violifer.tif')
+# ccoru_sdm <- raster('Colibri_coruscans.tif')
 
-peru_waterways <- st_read('C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/Hidrografia/Hidrografia/hidro1.shp')
-peru_elevation <- raster('C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/Peru_elevation_fromFanny/HDR.ADF')
+peru_waterways <- st_read('Hidrografia/Hidrografia/hidro1.shp')
+peru_elevation <- raster('Peru_elevation_fromFanny/HDR.ADF')
 
-annotpath <- 'C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/ANGSD analyses/2nd pass ANGSD - remove outliers/NgsTools PCA - v2/'
+annotpath <- '2nd pass ANGSD - remove outliers/NgsTools PCA - v2/'
 annot_cvioln59 <- read.table(paste(annotpath,'cviol_n59.clst', sep=''), sep="\t", header=T)
 annot_ccorun97 <- read.table(paste(annotpath,'ccoru_n97.clst', sep=''), sep='\t', header=T)
 
 # species range maps
-cviol_dichroura_range <- readShapePoly('C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/Cviolifer_subsp_distributions/species_22726758_Cvdichroura/species_22726758/species_22726758.shp')
-cviol_albicaudata_range <- readShapePoly('C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/Cviolifer_subsp_distributions/species_22726764_Cvalbicaudata/species_22726764/species_22726764.shp')
-cviol_osculans_range <- readShapePoly('C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/Cviolifer_subsp_distributions/species_22726770_Cvosculans/species_22726770/species_22726770.shp')
-ccoru_range <- readShapePoly('C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/species_22687114_Ccoruscans/species_22687114/species_22687114.shp')
-```
+cviol_dichroura_range <- readShapePoly('Cviolifer_subsp_distributions/species_22726758_Cvdichroura/species_22726758/species_22726758.shp')
+cviol_albicaudata_range <- readShapePoly('Cviolifer_subsp_distributions/species_22726764_Cvalbicaudata/species_22726764/species_22726764.shp')
+cviol_osculans_range <- readShapePoly('Cviolifer_subsp_distributions/species_22726770_Cvosculans/species_22726770/species_22726770.shp')
+ccoru_range <- readShapePoly('species_22687114_Ccoruscans/species_22687114/species_22687114.shp')
 
-```{r, cache=TRUE, message=FALSE, echo=FALSE}
-# make masked rasters to Peru
+# ------ make masked rasters to Peru ------
 # get peru country outline
 peru <- getData('GADM', country='Peru', level=0) #country outline only (no depts, counties, etc.)
 peru_adm <- getData('GADM', country='Peru', level=1)
@@ -95,12 +78,10 @@ cviol_a_range_cropped <- crop(cviol_albicaudata_range, peru)
 cviol_o_range_cropped <- crop(cviol_osculans_range, peru)
 ccoru_range_cropped <- crop(ccoru_range, peru)
 
-# plot samples on masked raster maps
-ccoru_masked_raster <- raster('C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/Spatialpopgen_chapter/popgenchapter_figs/ccoru_Perumasked.tif')
-cviol_masked_raster <- raster('C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/Spatialpopgen_chapter/popgenchapter_figs/cviol_perumasked.tif')
-```
+# ------ plot samples on masked raster maps -------
+ccoru_masked_raster <- raster('ccoru_Perumasked.tif')
+cviol_masked_raster <- raster('cviol_perumasked.tif')
 
-```{r, cache=TRUE, echo=FALSE}
 #set up sample colors by geo subpop
 cviolcols <- c("#a6cee3", "#1f78b4", "#b2df8a", "#33a02c", "#fb9a99", "#c51b7d")
 ccorucols <- c("#a6cee3", "#fdbf6f", "#ff7f00", "#cab2d6", "#33a02c", "#c51b7d", "#6a3d9a")
@@ -122,26 +103,7 @@ myplotcolors_ccoru[annot_ccorun97$Geographic_subpopulations == 'pop6'] <- ccoruc
 myplotcolors_ccoru[annot_ccorun97$Geographic_subpopulations == 'pop7'] <- ccorucols[7]
 annot_ccorun97$myplotcolors <- myplotcolors_ccoru
 
-# myshapes <- c('21', '22', '23', '24', '25', '3', '4', '8', '6')
-# myplotshapes_cviol <- rep(myshapes[1], length(annot_cvioln59[,1]))
-# myplotshapes_cviol[annot_cvioln59$Geographic_subpopulations == 'pop2'] <- myshapes[2]
-# myplotshapes_cviol[annot_cvioln59$Geographic_subpopulations == 'pop3'] <- myshapes[3]
-# myplotshapes_cviol[annot_cvioln59$Geographic_subpopulations == 'pop4'] <- myshapes[4]
-# myplotshapes_cviol[annot_cvioln59$Geographic_subpopulations == 'pop5'] <- myshapes[5]
-# myplotshapes_cviol[annot_cvioln59$Geographic_subpopulations == 'pop6'] <- myshapes[6]
-# annot_cvioln59$myplotshapes <- myplotshapes_cviol
-# myplotshapes_ccoru <- rep(myshapes[1], length(annot_ccorun97[,1]))
-# myplotshapes_ccoru[annot_ccorun97$Geographic_subpopulations == 'pop2'] <- myshapes[2]
-# myplotshapes_ccoru[annot_ccorun97$Geographic_subpopulations == 'pop3'] <- myshapes[3]
-# myplotshapes_ccoru[annot_ccorun97$Geographic_subpopulations == 'pop4'] <- myshapes[4]
-# myplotshapes_ccoru[annot_ccorun97$Geographic_subpopulations == 'pop5'] <- myshapes[5]
-# myplotshapes_ccoru[annot_ccorun97$Geographic_subpopulations == 'pop6'] <- myshapes[6]
-# myplotshapes_ccoru[annot_ccorun97$Geographic_subpopulations == 'pop7'] <- myshapes[7]
-# annot_ccorun97$myplotshapes <- myplotshapes_ccoru
-```
-
-### Plots with elevation & elevation bins:
-```{r, out.width='90%', cache=TRUE, echo=FALSE, message=FALSE, results='hide'}
+# ------ Plots with elevation & elevation bins ------
 # plot elevation by sorted individuals
 annot_cvioln59$FID <- factor(annot_cvioln59$FID,
                              levels=annot_cvioln59$FID[order(annot_cvioln59$Elevation)])
@@ -173,54 +135,38 @@ par(mfrow=c(1,1))
 
 ggplot(annot_cvioln59, aes(x=FID, y=Elevation)) +
   geom_bar(stat='identity', aes(fill=Geographic_subpopulations)) +
-  # geom_bar(stat='identity', aes(fill=Elevation_bins_400m)) +
-  # scale_fill_manual(values=elevcolors) +
   scale_fill_manual(values=cviolcols) +
   xlab('Sample') +
   ylab('Elevation (m)') +
   coord_cartesian(ylim=c(min(annot_cvioln59$Elevation), max(annot_cvioln59$Elevation))) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
   labs(fill='Geopop')
-  # labs(fill='Elevation bin')
-# ggsave('Fig1a_cviolelevbins.jpg', height=5, width=7, units='in', dpi=500)
 ggsave('Fig1a_cviolelevbins_geopopcolor.jpg', height=5, width=7, units='in', dpi=500)
 
 ggplot(annot_ccorun97, aes(x=FID, y=Elevation)) +
-  # geom_bar(stat='identity', aes(fill=Elevation_bin_400m)) +
   geom_bar(stat='identity', aes(fill=Geographic_subpopulations)) +
-  # scale_fill_manual(values=elevcolors) +
   scale_fill_manual(values=ccorucols) +
   xlab('Sample') +
   ylab('Elevation (m)') +
   coord_cartesian(ylim=c(min(annot_ccorun97$Elevation), max(annot_ccorun97$Elevation))) +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank()) +
   labs(fill='Geopop')
-  # labs(fill='Elevation bin')
-# ggsave('Fig1b_ccoruelevbins.jpg', height=5, width=7, units='in', dpi=500)
 ggsave('Fig1b_ccoruelevbins_geopopcolor.jpg', height=5, width=7, units='in', dpi=500)
-```
 
-## EEMS maps
-```{r, echo=FALSE}
-eems_plots <- 'C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/Spatialpopgen_chapter/popgenchapter_figs'
-```
+# ----- EEMS maps -----
 
-##### *Coeligena violifer* EEMS map
-```{r, out.width='70%', echo=FALSE}
+# Coeligena violifer EEMS map
 cvioleems <- image_read(paste(eems_plots, '/cviol_eems_OUT_rejratetesting3-mrates01.png', sep=''))
-```
 
-##### *Colibri coruscans* EEMS map
-```{r, out.width='70%', echo=FALSE}
+# Colibri coruscans EEMS map
 ccorueems <- image_read(paste(eems_plots, '/ccoru_eems_OUT_rejratetesting3-mrates01.png', sep=''))
-```
 
-## Admixture plots
-```{r, cache=TRUE, echo=FALSE}
+
+# ----- Admixture plots -----
 # input file paths
-FULLpath <- 'C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/ANGSD analyses/2nd pass ANGSD - remove outliers/NgsAdmix - v2/NGSadmix_FULLDAT/'
+FULLpath <- '/2nd pass ANGSD - remove outliers/NgsAdmix - v2/NGSadmix_FULLDAT/'
 #for attribute file inputs
-pass2path_pca <- 'C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/ANGSD analyses/2nd pass ANGSD - remove outliers/ngsTools PCA - v2/'
+pass2path_pca <- '2nd pass ANGSD - remove outliers/ngsTools PCA - v2/'
 
 # output file path
 popgenoutpath = './'
@@ -261,26 +207,20 @@ plotadmix_geoorder_K123 <- function(plottype, annot, mysp, myadmix, outpath){
     # dev.off()
   }
 }
-```
 
-##### *Coeligena violifer* admixture plots K=2 & 3
-```{r, fig.width=15, fig.height=3, echo=FALSE, cache=TRUE}
+# ------ Coeligena violifer admixture plots K=2 & 3 ------
 plotadmix_geoorder_K123('K2', pop_cviol, 'Cviol', admix_cviolK2, popgenoutpath)
 plotadmix_geoorder_K123('K3', pop_cviol, 'Cviol', admix_cviolK3, popgenoutpath)
-```
 
-##### *Colibri coruscans* admixture plots K=1, 2, & 3
-```{r, fig.width=15, fig.height=3, echo=FALSE, cache=TRUE}
+# ------ Colibri coruscans admixture plots K=1, 2, & 3 ------
 plotadmix_geoorder_K123('K1', pop_ccoru_97, 'Ccoru', admix_ccoruK1_97, popgenoutpath)
 plotadmix_geoorder_K123('K2', pop_ccoru_97, 'Ccoru', admix_ccoruK2_97, popgenoutpath)
 plotadmix_geoorder_K123('K3', pop_ccoru_97, 'Ccoru', admix_ccoruK3_97, popgenoutpath)
-```
 
-## PCA plots
-```{r, cache=TRUE, results='hide', echo=FALSE}
+# ----- PCA plots -----
 # Annotation file is in plink cluster format
 # input file path
-pass2path <- 'C:/Users/mcwlim2/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/ANGSD analyses/2nd pass ANGSD - remove outliers/NgsTools PCA - v2/'
+pass2path <- '/2nd pass ANGSD - remove outliers/NgsTools PCA - v2/'
 
 # output file path
 outpathpass2 <- './'
@@ -346,13 +286,6 @@ cviolPCAplot <- ggplot() + geom_point(data=PC_cviol, aes_string(x=x_axis, y=y_ax
   theme_cowplot()
 ggsave('cviolPCA_21june.jpeg', height=5, width=5, units='in', dpi=600)
 
-# cviolPC1_PC3 <- ggplot() + geom_point(data=PC_cviol, aes_string(x='PC1', y='PC3', col='GeoPop'), size=5, alpha=0.7) +
-#   ggtitle(expression(paste(italic('Coeligena violifer'), ' (n=59)', sep=''))) +
-#   xlab(paste("PC1 (",signif(eig_cviol$val[comp[1]], digits=3)*100,"%)",sep='')) +
-#   ylab(paste("PC3 (",signif(eig_cviol$val[3], digits=3)*100,"%)",sep='')) +
-#   scale_colour_manual(values=cviolcols) +
-#   theme(legend.position = 'bottom')
-
 ccoruPCAplot <- ggplot() + geom_point(data=PC_ccoru, aes_string(x=x_axis, y=y_axis, fill='GeoPop'), size=5, alpha=0.7, pch=21) +
   ggtitle(expression(paste(italic('Colibri coruscans'), ' (n=97)', sep=''))) +
   xlab(paste("PC",comp[1]," (",signif(eig_ccoru$val[comp[1]], digits=3)*100,"%)",sep='')) +
@@ -364,32 +297,10 @@ ggsave('ccoruPCA_21june.jpeg', height=5, width=5, units='in', dpi=600)
 # jpeg('cviol_PCA.jpeg', height=5, width=5, units='in', res=600)
 plot_grid(cviolPCAplot, ccoruPCAplot)
 # dev.off()
-```
 
+# ----- SNP figures -----
 
-```{r, echo=FALSE}
-## Combined genetic structure plots
-
-cviol_admix <- image_read('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/Spatialpopgen_chapter/popgenchapter_figs/Cviol_K3barplot.jpg')
-cviol_PCA <- image_read('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/Spatialpopgen_chapter/popgenchapter_figs/cviol_PCA.jpeg')
-
-cviol_admix_rotated <- image_rotate(cviol_admix, 90)
-
-# gl = lapply(list(cvioleems, cviol_admix), grid::rasterGrob)
-# gridExtra::grid.arrange(grobs=gl, ncol=2, padding=0)
-
-# work in progress -- right now, easier to get the spacing of plots manually... e.g., in Inkscape
-
-
-```
-
-
-
-## SNP figures
-
-
-### Figure 3:
-```{r, echo=FALSE}
+# ------ Figure 3: ------
 countsToCases <- function(x, countcol = "SNP_freq") {
   # Get the row indices to pull from x
   idx <- rep.int(seq_len(nrow(x)), x[[countcol]])
@@ -421,20 +332,10 @@ ggplot() + geom_bar(aes(y = fraction, x = SNP_type, fill = LFMM), col='black', d
   theme(axis.text.x = element_text(angle = 35, hjust = 1, size=15))+
   facet_grid(~ species, margins=F)
 ggsave('Fig3_genefacetCviolCcoru_cand-control_cline-no.jpg', h=5, w=6, dpi=600)
-```
 
+# ----- Supplementary figures -----
 
-```{r, out.width='80%', echo=FALSE}
-include_graphics('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/Pop_GEA_chapter/Fig2_genefacetCviolCcoru_cand-control_cline-no.jpg')
-
-include_graphics('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/Pop_GEA_chapter/Fig3_ccorucviolexamples_pngversion.png')
-
-include_graphics('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/Pop_GEA_chapter/Fig4_cviolccoru_smurf2ryr2_allelefreqplots.jpg')
-```
-
-# Supplementary figures
-
-### Figure S1: Plots with SDM & range map
+# ------ Figure S1: Plots with SDM & range map ------
 ```{r, out.width='90%',, cache=TRUE, echo=FALSE, message=FALSE, results='hide'}
 par(mfrow=c(1,2), oma=c(3,3,2,2))
 # 'Greys' doesn't have the best contrast, but I don't want extra colors...
@@ -458,28 +359,23 @@ points(annot_ccorun97[,c(8,7)], pch=21,
        bg=alpha(annot_ccorun97$myplotcolors, 0.7), cex=1.3)
 # dev.off()
 par(mfrow=c(1,1))
-```
 
-## Isolation by distance
-```{r, cache=TRUE, echo=FALSE}
+# ----- Isolation by distance ------
 # read in cost distance matrices
-costdist_ccoru <- as.matrix(read.table('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/cost_dist_analysis_files/ccoru_costdist_km.txt'))
-costdist_cviol <- as.matrix(read.table('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/cost_dist_analysis_files/cviol_costdist_km.txt'))
+costdist_ccoru <- as.matrix(read.table('ccoru_costdist_km.txt'))
+costdist_cviol <- as.matrix(read.table('cviol_costdist_km.txt'))
 
 # read in genetic distances from NGSdist
 # using the NGSdist matrixes calculated for EEMS, deleted blank 1st line and 2nd line that had sample size
 # the first column is Ind#
-IBDpath <- 'C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/ANGSD analyses/2nd pass ANGSD - remove outliers/Isolation_by_Dist/'
+IBDpath <- '2nd pass ANGSD - remove outliers/Isolation_by_Dist/'
 gendist_cvioln59 <- read.table(paste(IBDpath,'cviol59_forIBD.txt', sep=''), sep='\t')[-1]
 gendist_ccorun97 <- read.table(paste(IBDpath,'ccoru97_forIBD.txt', sep=''), sep='\t')[-1]
 
-cviol_pts <- read.table('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/ANGSD analyses/2nd pass ANGSD - remove outliers/ngsTools PCA - v2/cviol_n59.clst', header=TRUE)[,c('Specimen', 'DEC_LAT', 'DEC_LONG')]
-ccoru_pts <- read.table('C:/Users/mcwlim/Dropbox/Marisacompfiles/Seq cap files/SeqCapBioinformatics/ANGSD analyses/2nd pass ANGSD - remove outliers/ngsTools PCA - v2/ccoru_n97.clst', header=TRUE)[,c('Specimen', 'DEC_LAT', 'DEC_LONG')]
+cviol_pts <- read.table('/2nd pass ANGSD - remove outliers/ngsTools PCA - v2/cviol_n59.clst', header=TRUE)[,c('Specimen', 'DEC_LAT', 'DEC_LONG')]
+ccoru_pts <- read.table('/2nd pass ANGSD - remove outliers/ngsTools PCA - v2/ccoru_n97.clst', header=TRUE)[,c('Specimen', 'DEC_LAT', 'DEC_LONG')]
 
-```
-
-##### Figure S2: Plot genetic distance vs. cost distance & genetic distance vs. eucldean distance
-```{r, cache=TRUE, echo=FALSE}
+# ------ Figure S2: Plot genetic distance vs. cost distance & genetic distance vs. eucldean distance ------
 # calculate pairwise distances
 # using functions that rely on gdist() from Imap package to calculate distance matrix
 # modified from here: https://eurekastatistics.com/calculating-a-distance-matrix-for-geographic-points-using-r/
@@ -560,10 +456,8 @@ plot_grid(cviol_geo, cviol_cost,
           labels=c('a', '' , 'b', ' '),
           nrow=2, ncol=2)
 dev.off()
-```
 
-##### Figure S5-8: GO biological process and Panther pathway bar plots
-```{r, echo=FALSE}
+# ----- Figure S5-8: GO biological process and Panther pathway bar plots -----
 # these are after fixing gene lists Nov 2019
 # Previously ID'd candidate genes
 cviol_Wilcoxcand_pathway <- read.table('cviol_wilcox_pathway.txt', sep='\t', header=F)
@@ -628,4 +522,3 @@ pathwayplots <- plot_grid(cviol_pathway_plot, ccoru_pathway_plot, ncol=2, align=
 
 save_plot('17nov19_CviolCcoru_novelcand_bpbar.jpg', bpplots, base_height=10, base_width=10)
 save_plot('17nov19_CviolCcoru_novelcand_pathwaysbar.jpg', pathwayplots, base_height=15, base_width=25)
-```
