@@ -4,6 +4,10 @@ The code in this repository accompany the *in revision* paper:
 
 Marisa C.W. Lim, Ke Bi, Christopher C. Witt, Catherine H. Graham, Liliana M. Davalos
 
+Code: (c)2016-2018
+
+Documentation update: 2020
+
 ## Variant calling pipeline
 Note: this pipeline uses scripts written by [UC Berkeley MVZ/CGRL scientists](./CGRLScripts).
 
