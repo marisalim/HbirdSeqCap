@@ -43,11 +43,11 @@ Note: this pipeline uses scripts written by [UC Berkeley MVZ/CGRL scientists](./
     - [LFMM](./5Pop_genomics_analyses/J_LFMM)
 
 
-- Shiny app
+## Shiny app
 
-*work in progress*
+*[work in progress](./app.R)*
 
-Check out additional plots of the data:
-- PCA - more axes
-- SNP clines
-- Candidate gene pathways
+Explore the data further:
+- PCA - plot more axes
+- SNP clines - plot clines for more SNPs
+- Candidate gene pathways - explore pathways
