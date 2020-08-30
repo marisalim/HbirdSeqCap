@@ -1,4 +1,4 @@
-#  MAF filter and LFMM selection test script descriptions
+#  MAF filter script descriptions
 
 Required software:
 - Python 2.7
