@@ -57,4 +57,4 @@ grep best *K2*.log | awk '{print $2}' | tr -d 'like=' > K2_likelihood_sgeof.txt
 The likelihood txt files are input for this R script that calculates delta K and plots the results: `evanno_method.r`
 
 ## Plot admixture results
-- plotted as bar plots; the code used for final figures is in [`MSfigurecode.rmd`](../MSfigurecode.rmd)
+- plotted as bar plots
