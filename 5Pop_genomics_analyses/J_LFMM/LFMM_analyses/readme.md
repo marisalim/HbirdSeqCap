@@ -22,7 +22,7 @@ What we need:
 
 ### 3. Run LFMM
 
-Run LFMM for each species, for K1-3 with 5 iterations each - I actually ran these for the different bin sizes as well. I used batch scripts for running LFMM [from allele frequency input](./LFMM_fromallelefreq); it does require a lot of parameter sensitivity testing - refer to LFMM documentation for help. The command is the same, the input files change. Note that the latest version of LFMM (v1.5) does not require the `-D` flag anymore (it's auto-detected).
+Run LFMM for each species, for K1-3 with 5 iterations each - I actually ran these for the different bin sizes as well. I used batch scripts for running LFMM [example for allele frequency input](./LFMM_fromallelefreq); it does require a lot of parameter sensitivity testing - refer to LFMM documentation for help. The command is the same, the input files change. Note that the latest version of LFMM (v1.5) does not require the `-D` flag anymore (it's auto-detected).
 
 ### 4. Check lambda and p-value distributions for LFMM outputs
 
