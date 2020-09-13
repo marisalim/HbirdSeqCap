@@ -6,7 +6,7 @@ Required software:
 
 ## LFMM with allele frequency input:
 
-Note: I also tried LFMM with [genotype input](./LFMM_fromgeno/), but the results look too 'noisy'. Ke suggested using allele frequencies calculated by elevational band groups as input for LFMM instead of genotypes. This should remove some of the noise. Based on Megan Rixey’s work (former postdoc in Nachman lab), there should be very good correlation between the LFMM top outlier SNPs and allele frequency by elevation band for that SNP. For the analysis with genotypes, the correlations for the top SNPs with elevation were not that good. 
+Note: I also tried LFMM with genotype input, but the results look too 'noisy'. Ke suggested using allele frequencies calculated by elevational band groups as input for LFMM instead of genotypes. This should remove some of the noise. Based on Megan Rixey’s work (former postdoc in Nachman lab), there should be very good correlation between the LFMM top outlier SNPs and allele frequency by elevation band for that SNP. For the analysis with genotypes, the correlations for the top SNPs with elevation were not that good. 
 
 What we need:
 - use elevational bins (don’t necessarily have to be equal units, just shouldn’t be drastically different)
