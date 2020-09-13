@@ -15,7 +15,7 @@ Note: this pipeline uses scripts written by [UC Berkeley MVZ/CGRL scientists](./
 
 [4. SNP calling](./4SNPcalling): Call variants and filter loci with too much missing data, within 10bp of indels, that are not biallelic, and/or that have excessive heterozygosity
 
-## Population genomic analyses
+## [5. Population genomic analyses](./5Pop_genomics_analyses)
 - [PCA](./5Pop_genomics_analyses/A_PCA)
 - [Admixture](./5Pop_genomics_analyses/B_ngsAdmix)
 - [Relatedness coefficient](./5Pop_genomics_analyses/C_NgsRelate)
