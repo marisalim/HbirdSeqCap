@@ -61,4 +61,4 @@ Wrapper script: `sbatch ngsCovar_wrap.sh`
 
 ## Visualize PCA plots
 
-Use .covar files from ngsTools PCA output. Code in [`MSfigurecode.rmd`](../MSfigurecode.rmd)
+Use .covar files from ngsTools PCA output.
