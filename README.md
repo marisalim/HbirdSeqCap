@@ -16,29 +16,15 @@ Note: this pipeline uses scripts written by [UC Berkeley MVZ/CGRL scientists](./
 [4. SNP calling](./4SNPcalling): Call variants and filter loci with too much missing data, within 10bp of indels, that are not biallelic, and/or that have excessive heterozygosity
 
 ## Population genomic analyses
-
 - [PCA](./5Pop_genomics_analyses/A_PCA)
-
 - [Admixture](./5Pop_genomics_analyses/B_ngsAdmix)
-
 - [Relatedness coefficient](./5Pop_genomics_analyses/C_NgsRelate)
-
 - Gene flow estimates
-
     - Between population diversity ([Fst](./5Pop_genomics_analyses/D_Fstcalc), [Dxy](./5Pop_genomics_analyses/E_dxycalc))
-
     - [Isolation by distance - geodesic and least cost distance](./5Pop_genomics_analyses/F_IBD)
-
-
 - [Within population diversity](./5Pop_genomics_analyses/G_WattersonsTheta)
-
-
 - [Estimating Effective Migration Surfaces (EEMS)](./5Pop_genomics_analyses/H_EEMS)
-
-
 - Test for natural selection with Latent Factor Mixed Models (LFMM)
-
     - [Call genotypes](./5Pop_genomics_analyses/I_ANGSD_genotype_calls)
-
     - [LFMM](./5Pop_genomics_analyses/J_LFMM)
 
