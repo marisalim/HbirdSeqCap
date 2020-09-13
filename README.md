@@ -4,10 +4,6 @@ The code in this repository accompany the *in revision* paper:
 
 Marisa C.W. Lim, Ke Bi, Christopher C. Witt, Catherine H. Graham, Liliana M. Davalos
 
-Code: (c)2016-2018
-
-Documentation update: 2020
-
 ## Variant calling pipeline
 Note: this pipeline uses scripts written by [UC Berkeley MVZ/CGRL scientists](./CGRLScripts).
 
@@ -15,7 +11,7 @@ Note: this pipeline uses scripts written by [UC Berkeley MVZ/CGRL scientists](./
 
 [2. Clean raw_reads_and assemble](./2Clean_reads_assemble): Remove low quality reads, adapter sequences, PCR duplicates, and potential bacterial contaminant sequences; merge paired-end reads; and generate *de novo* assemblies as species-specific references
 
-[3. Read alignment](./3Alignment): Map reads to species-specific reference assemblies and evaluate capture experiment (% reads retained after filtering but before alignment, length of mapped data, % of reads aligned to target region (specificity), % of targeted regions covered by at least one read (sensitivity), average coverage, variationin coverage, and % of sites retained at multiple coverage depths)
+[3. Read alignment](./3Alignment): Map reads to species-specific reference assemblies and evaluate capture experiment (% reads retained after filtering but before alignment, length of mapped data, % of reads aligned to target region (specificity), % of targeted regions covered by at least one read (sensitivity), average coverage, variation in coverage, and % of sites retained at multiple coverage depths)
 
 [4. SNP calling](./4SNPcalling): Call variants and filter loci with too much missing data, within 10bp of indels, that are not biallelic, and/or that have excessive heterozygosity
 
