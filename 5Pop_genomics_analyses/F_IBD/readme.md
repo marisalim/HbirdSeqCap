@@ -30,4 +30,3 @@ Requires:
 
 Calculations done in R: `calc_cost_dist.r`
 
-Paper figure code in [`MSfigurecode.rmd`](../MSfigurecode.rmd)
