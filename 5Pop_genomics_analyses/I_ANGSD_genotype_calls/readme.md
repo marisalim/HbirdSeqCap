@@ -1,6 +1,6 @@
 # ANGSD genotype calling script descriptions
 
-Unlike genotype probabilities, genotype calling is even more sensitive. Consequently, I tested the sensitivity of several paramters used by the ANGSD program to call genotypes.
+Unlike genotype probabilities, genotype calling is even more sensitive. Consequently, I tested the sensitivity of several parameters used by the ANGSD program to call genotypes.
 
 Steps:
 1. run ANGSD command to call genotypes (see scripts below)
@@ -21,6 +21,11 @@ sbatch optgeno_cviol_wrap.sh
 ```
 
 ## Final genotype call commands per species after sensitivity analyses
+
+Full command:
+```
+angsd -bam <bam list file> -ref <reference fasta file> -anc <reference fasta file> -doGeno 2 -SNP_pval 1e-3 -postCutoff 0.95 -dosnpstat 1 -minInd <70% of individuals> -geno_minDepth 5 -only_proper_pairs 0 -minMapQ 10 -minQ 20 -fold 1 -GL 1 -doPost 2 -doMaf 1 -doMajorMinor 1 -doSaf 1 -skipTriallelic 1 -doCounts 1 -sites <.keep file> -rf <.rf file> -out <output file name>
+```
 
 Final parameter choice: `SNP_pval` = 1e-3 and	`postCutOff` = 0.95; `hetBias` and `-C` not used
 
