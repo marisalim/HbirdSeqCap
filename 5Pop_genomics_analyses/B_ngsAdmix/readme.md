@@ -5,7 +5,7 @@ Required software:
 
 ## Create inputs for NgsAdmix
 
-Run ANGSD command used for [PCA](../A_PCA/readme.md), but add `-doGlf 2` to save genotype likelihoods in beagle format.
+Run ANGSD command used for [PCA](../A_PCA/readme.md), but add `-doGlf 2` to save genotype likelihoods in beagle format. We used `-GL 1` or the SAMtools method for estimating genotype likelihoods in ANGSD.
   - use (70% \* samples) for `minInd` and `minIndDepth = 3`
 
 Wrapper scripts:
