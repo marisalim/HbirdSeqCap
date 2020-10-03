@@ -24,7 +24,7 @@ NGSadmix -likes {input} -K {myK} -P 4 -minMaf 0.05 -o {output}
 - `-K` = number of *a priori* populations you want to test (tested K=[1,2,3,4,5])
 - `-minMaf` = minimum minor allele frequency filter
 
-Ran each iteration (K) 10 times.
+Ran each iteration (K=1-5) 10 times for each species.
 
 The NGSadmix command is run from a python script. Running the python scripts on the HPC with wrapper scripts.
 
