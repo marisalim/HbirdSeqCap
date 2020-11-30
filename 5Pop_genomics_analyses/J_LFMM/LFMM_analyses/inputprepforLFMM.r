@@ -70,6 +70,15 @@ calc_allelefrequency <- function(genofile, binfile, mybin, myspecies, snpbatch){
       # now, save results
       bin_df <- rbind(bin_df, allele_freqs)
     }
+    
+    # remove any rows with NAs (SNPs that have bins with missing allele frequencies)
+    snptocor <- bin_df[bin_df$theSNP == colnames(snpcol)[1],]
+    if(sum(is.na(snptocor$bigA_freq)) != 0){
+      # there is at least 1 row of NA frequencies - need this section to remove NAs!
+      # remove from bin_df and don't add to cor_df
+      bin_df <- bin_df[bin_df$theSNP != colnames(snpcol)[1],]
+      print(paste(colnames(snpcol)[1], ' SNP has been removed', sep=''))
+    }
   }
   
   bin_df2 <- bin_df[-1,]
@@ -129,7 +138,6 @@ hist(cviol_elev$Elevation, breaks=30)
 abline(v=mean(cviol_elev$Elevation), col='tomato')
 abline(v=median(cviol_elev$Elevation), col='turquoise')
 # median tracks the higher frequency bin better than mean
-# distributions definitely not normal...
 
 cviol_elev_bins <- c(2200,2600,3000,3400,3800)
 # this is for LFMM
@@ -177,9 +185,9 @@ lfmm_qvalcalc <- function(mypath, myK, myiters, mysp){
   write.qvalue(qobj, file=paste('./qval_', mysp, "_K",myK, '_', round(lambda,3), myiters,".txt", sep=''))
   capture.output(summary(qobj), file=paste('./qvalstats_', mysp, '_K', myK, '_', round(lambda, 3), myiters, '.txt', sep=''))
   
-  totalSNPs <- length(qobj$significant) #215,681 for ccoru; 91124 for cviol
-  sig_SNPs <- length(qobj[qobj$significant == TRUE]) #21,638 ccoru; 2517 for cviol
-  nonsig_SNPs <- length(qobj[qobj$significant == FALSE]) #194,043; 88607 for cviol
+  totalSNPs <- length(qobj$significant) 
+  sig_SNPs <- length(qobj[qobj$significant == TRUE]) 
+  nonsig_SNPs <- length(qobj[qobj$significant == FALSE])
   
   mytable <- table(lambda, totalSNPs, sig_SNPs, nonsig_SNPs)
   write.table(mytable, paste('./lfmmstats_', mysp, '_K', myK, '_', round(lambda, 3), myiters, '.txt', sep=''))
