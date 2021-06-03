@@ -1,10 +1,8 @@
 The code in this repository accompany the paper:
 
-*Pervasive genomic signatures of local adaptation to altitude across highland specialist Andean hummingbird populations*
+[*Pervasive genomic signatures of local adaptation to altitude across highland specialist Andean hummingbird populations*](https://academic.oup.com/jhered/advance-article-abstract/doi/10.1093/jhered/esab008/6149964)
 
 Marisa C.W. Lim, Ke Bi, Christopher C. Witt, Catherine H. Graham, Liliana M. Davalos
-
---> [Advanced access version here!](https://academic.oup.com/jhered/advance-article-abstract/doi/10.1093/jhered/esab008/6149964)
 
 ## Variant calling pipeline
 Note: this pipeline uses scripts written by [UC Berkeley MVZ/CGRL scientists](./CGRLScripts).
